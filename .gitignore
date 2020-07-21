@@ -1,0 +1,8 @@
+#Excel Files
+*.xlsx
+*.xls
+
+#Folders
+/dist
+/venv
+/.idea

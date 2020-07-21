@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>525</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="load_lists_button">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>30</y>
+      <width>140</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Öğrenci Listesi Yükle</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="selected_file_text">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>30</y>
+      <width>300</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="create_list_button">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>140</y>
+      <width>150</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Yoklamaları Oluştur</string>
+    </property>
+   </widget>
+   <widget class="QListView" name="list_view">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>70</y>
+      <width>256</width>
+      <height>421</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="okul_adi_text_2">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>90</y>
+      <width>251</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="okul_adi_text">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>90</y>
+      <width>55</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Okul Adı:</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="save_list_button">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>200</y>
+      <width>150</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Yoklamaları Kaydet</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>20</y>
+      <width>251</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Oluşturulacak Yoklama Listeleri</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
