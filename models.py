@@ -17,18 +17,26 @@ def get_lesson_from_data(data):
 
 
 class Student:
-    def __init__(self, satir_no, numara, ad, biyoloji, cografya, fizik, kimya, matematik, tarih, edebiyat):
-        self.satir_no = satir_no
-        self.numara = numara
-        self.ad = ad
+    def __init__(self, data):
+        self.satir = data["satir"]
+        self.numara = data["numara"]
+        self.ad = data["ad"]
 
-        self.biyoloji = get_lesson_from_data(biyoloji)
-        self.cografya = get_lesson_from_data(cografya)
-        self.fizik = get_lesson_from_data(fizik)
-        self.kimya = get_lesson_from_data(kimya)
-        self.matematik = get_lesson_from_data(matematik)
-        self.tarih = get_lesson_from_data(tarih)
-        self.edebiyat = get_lesson_from_data(edebiyat)
+        self.biyoloji = get_lesson_from_data(data["biyoloji"])
+        self.cografya = get_lesson_from_data(data["cografya"])
+        self.fizik = get_lesson_from_data(data["fizik"])
+        self.kimya = get_lesson_from_data(data["kimya"])
+        self.matematik = get_lesson_from_data(data["matematik"])
+        self.tarih = get_lesson_from_data(data["tarih"])
+        self.edebiyat = get_lesson_from_data(data["edebiyat"])
+
+        lesson_classes = [self.biyoloji.name, self.cografya.name, self.fizik.name, self.kimya.name,
+                          self.matematik.name, self.tarih.name, self.edebiyat.name]
+        lesson_names = ["biyoloji", "cografya", "fizik", "kimya", "matematik", "tarih", "edebiyat"]
+        self.lessons = dict()
+
+        for i, k in zip(lesson_names, lesson_classes):
+            self.lessons[i] = k
 
     def lesson_from_name(self, name_string):
         if name_string == "cografya":
