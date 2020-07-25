@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="load_lists_button">
+   <widget class="QPushButton" name="selectListButton">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -27,29 +27,34 @@
      <string>Öğrenci Listesi Yükle</string>
     </property>
    </widget>
-   <widget class="QLabel" name="selected_file_text">
+   <widget class="QLabel" name="FileNameLabel">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>30</y>
-      <width>300</width>
+      <x>30</x>
+      <y>70</y>
+      <width>451</width>
       <height>32</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <pointsize>8</pointsize>
+      <weight>50</weight>
+      <italic>true</italic>
+      <bold>false</bold>
+      <underline>false</underline>
+      <strikeout>false</strikeout>
      </font>
     </property>
     <property name="text">
      <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="create_list_button">
+   <widget class="QPushButton" name="createListButton">
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>140</y>
+      <y>170</y>
       <width>150</width>
       <height>28</height>
      </rect>
@@ -58,7 +63,7 @@
      <string>Yoklamaları Oluştur</string>
     </property>
    </widget>
-   <widget class="QListView" name="list_view">
+   <widget class="QListView" name="listView">
     <property name="geometry">
      <rect>
       <x>500</x>
@@ -68,21 +73,21 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="okul_adi_text_2">
+   <widget class="QLineEdit" name="okulAdiLineEdit">
     <property name="geometry">
      <rect>
       <x>100</x>
-      <y>90</y>
+      <y>120</y>
       <width>251</width>
       <height>22</height>
      </rect>
     </property>
    </widget>
-   <widget class="QLabel" name="okul_adi_text">
+   <widget class="QLabel" name="_okul_adi_text">
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>90</y>
+      <y>120</y>
       <width>55</width>
       <height>22</height>
      </rect>
@@ -91,11 +96,11 @@
      <string>Okul Adı:</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="save_list_button">
+   <widget class="QPushButton" name="saveListButton">
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>200</y>
+      <y>230</y>
       <width>150</width>
       <height>28</height>
      </rect>
@@ -104,7 +109,7 @@
      <string>Yoklamaları Kaydet</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="_label">
     <property name="geometry">
      <rect>
       <x>500</x>

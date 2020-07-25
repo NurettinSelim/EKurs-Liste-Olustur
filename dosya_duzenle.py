@@ -1,8 +1,7 @@
 import pickle
+import term
 
 from openpyxl import load_workbook
-
-import term
 from models import Student
 
 cols_dict = dict(numara="A",
@@ -33,7 +32,7 @@ ogrenciler = sorted(ogrenciler, key=lambda i: i.numara)
 olustur_set = set()
 
 for ogrenci in ogrenciler:
-    for lesson_name, lesson_class in ogrenci.lessons.items():
+    for lesson_name, lesson_class in ogrenci:
         if lesson_class:
             olustur_set.add(lesson_name + lesson_class)
 

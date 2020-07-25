@@ -30,13 +30,16 @@ class Student:
         self.tarih = get_lesson_from_data(data["tarih"])
         self.edebiyat = get_lesson_from_data(data["edebiyat"])
 
+    def __iter__(self):
         lesson_classes = [self.biyoloji.name, self.cografya.name, self.fizik.name, self.kimya.name,
                           self.matematik.name, self.tarih.name, self.edebiyat.name]
         lesson_names = ["biyoloji", "cografya", "fizik", "kimya", "matematik", "tarih", "edebiyat"]
-        self.lessons = dict()
+        lessons = dict()
 
         for i, k in zip(lesson_names, lesson_classes):
-            self.lessons[i] = k
+            lessons[i] = k
+
+        return iter(lessons.items())
 
     def lesson_from_name(self, name_string):
         if name_string == "cografya":
