@@ -20,8 +20,8 @@ class Ui(QtWidgets.QMainWindow):
         # LineEdits
         self.okul_adi_line_edit = self.findChild(QtWidgets.QLineEdit, "okulAdiLineEdit")
 
-        # ListViews
-        self.list_view = self.findChild(QtWidgets.QListView, "listView")
+        # ListWidgets
+        self.list_widget = self.findChild(QtWidgets.QListWidget, "listWidget")
 
         # - Events - #
         # Button Events

@@ -80,4 +80,4 @@ def save_list_to_excel(filename, schoolname, data_dict):
                     sheet["B" + str(k)].value = student.numara
                     sheet["C" + str(k)].value = student.ad
 
-    kurs_wb.save(f"outputs/{filename}.xlsx")
+    kurs_wb.save(filename)
