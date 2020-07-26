@@ -39,7 +39,7 @@ def create_list(filename):
             if lesson_class:
                 olustur_set.add(lesson_name + lesson_class)
 
-    return dict(lists=list(olustur_set),
+    return dict(lists=sorted(list(olustur_set)),
                 students=students)
 
 
