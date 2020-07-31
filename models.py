@@ -17,27 +17,23 @@ def get_lesson_from_data(data):
 
 
 class Student:
-    def __init__(self, data):
+    def __init__(self, data: dict, data_dict: dict):
         self.satir = data["satir"]
-        self.numara = data["numara"]
         self.ad = data["ad"]
+        self.numara = data["numara"]
 
-        self.biyoloji = get_lesson_from_data(data["biyoloji"])
-        self.cografya = get_lesson_from_data(data["cografya"])
-        self.fizik = get_lesson_from_data(data["fizik"])
-        self.kimya = get_lesson_from_data(data["kimya"])
-        self.matematik = get_lesson_from_data(data["matematik"])
-        self.tarih = get_lesson_from_data(data["tarih"])
-        self.edebiyat = get_lesson_from_data(data["edebiyat"])
+        self.lesson_classes = list()
+        self.lesson_names = list()
+
+        for i in data_dict.keys():
+            setattr(self, i, get_lesson_from_data(data[i]))
+            self.lesson_classes.append(i + ".name")
+            self.lesson_names.append(i)
 
     def __iter__(self):
-        lesson_classes = [self.biyoloji.name, self.cografya.name, self.fizik.name, self.kimya.name,
-                          self.matematik.name, self.tarih.name, self.edebiyat.name]
-        lesson_names = ["biyoloji", "cografya", "fizik", "kimya", "matematik", "tarih", "edebiyat"]
         lessons = dict()
-
-        for i, k in zip(lesson_names, lesson_classes):
-            lessons[i] = k
+        for i in self.lesson_names:
+            lessons[i] = getattr(self, i).name
 
         return iter(lessons.items())
 

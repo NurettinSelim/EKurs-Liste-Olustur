@@ -1,4 +1,5 @@
 import pickle
+import string
 
 from openpyxl import load_workbook
 
@@ -7,33 +8,43 @@ from models import Student
 
 
 def create_list(filename):
-    cols_dict = dict(numara="A",
-                     ad="C",
-                     biyoloji="F",
-                     cografya="G",
-                     fizik="H",
-                     kimya="I",
-                     matematik="J",
-                     tarih="K",
-                     edebiyat="L")
-
+    # TODO edebiyat to turkdili
+    # cols_dict = dict(numara="A",
+    #                  ad="C",
+    #                  biyoloji="F",
+    #                  cografya="G",
+    #                  fizik="H",
+    #                  kimya="I",
+    #                  matematik="J",
+    #                  tarih="K",
+    #                  edebiyat="L")
+    cols_dict = dict(numara="A", ad="C")
+    cols_lesson_dict= dict()
     wb = load_workbook(filename=filename)
     ws = wb[wb.sheetnames[0]]
+
+    for harf in string.ascii_uppercase[5:]:
+        if bool(ws[f"{harf}1"].value) == 0:
+            break
+        cols_lesson_dict[ws[f"{harf}1"].value.lower()] = harf
 
     students = list()
 
     for row in range(3, ws.max_row + 1):
         data = dict()
         data["satir"] = row
+
+        for col_name, col_id in cols_lesson_dict.items():
+            data[col_name] = ws[f"{col_id}{row}"].value
+
         for col_name, col_id in cols_dict.items():
             data[col_name] = ws[f"{col_id}{row}"].value
 
-        students.append(Student(data))
+        students.append(Student(data, cols_lesson_dict))
 
     students = sorted(students, key=lambda i: i.numara)
 
     olustur_set = set()
-
     for student in students:
         for lesson_name, lesson_class in student:
             if lesson_class:

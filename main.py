@@ -61,7 +61,8 @@ class Ui(QtWidgets.QMainWindow):
             try:
                 self.course_data = create_list(self.file_name)
                 self.create_list_view(self.course_data["lists"])
-            except:
+            except Exception as e:
+                print(e)
                 show_message("Hatalı liste formatı!")
         else:
             show_message("Lütfen tercih listesini seçiniz!")
