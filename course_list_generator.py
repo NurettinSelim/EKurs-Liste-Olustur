@@ -8,18 +8,8 @@ from models import Student
 
 
 def create_list(filename):
-    # TODO edebiyat to turkdili
-    # cols_dict = dict(numara="A",
-    #                  ad="C",
-    #                  biyoloji="F",
-    #                  cografya="G",
-    #                  fizik="H",
-    #                  kimya="I",
-    #                  matematik="J",
-    #                  tarih="K",
-    #                  edebiyat="L")
     cols_dict = dict(numara="A", ad="C")
-    cols_lesson_dict= dict()
+    cols_lesson_dict = dict()
     wb = load_workbook(filename=filename)
     ws = wb[wb.sheetnames[0]]
 
@@ -92,3 +82,22 @@ def save_list_to_excel(filename, schoolname, data_dict):
                     sheet["C" + str(k)].value = student.ad
 
     kurs_wb.save(filename)
+
+
+# ------------------- #
+# For Another Project #
+def save_list_to_csv(folder, data_dict):
+    lesson_lists = data_dict["lists"]
+    students = data_dict["students"]
+
+    for lesson_list in lesson_lists:
+        filename = str(lesson_list + ".csv")
+        with open(folder + filename, "w+", encoding="utf-8") as file:
+
+            for k in range(len(filename)):
+                if filename[k].isdigit():
+                    lesson_name = filename[:k]
+                    break
+            for student in students:
+                if lesson_name + student.lesson_from_name(lesson_name).name == filename[:filename.find(".")]:
+                    file.write(f"{student.ad},{student.numara}\n")

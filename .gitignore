@@ -2,8 +2,13 @@
 *.xlsx
 *.xls
 
+#CSV Files
+*.csv
+
 #Folders
 /dist
+/excels
+/csv
 /venv
 /.idea
 /__pycache__
